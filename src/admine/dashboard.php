@@ -6,15 +6,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Spica Admin</title>
-  <!-- base:css -->
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
-  <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -30,7 +24,6 @@
           <a class="nav-link" href="dashboard.html">
             <i class="mdi-view-quilt mdi menu-icon"></i>
             <span class="menu-title">Dashboard</span>
-            <div class="badge badge-info badge-pill">2</div>
           </a>
         </li>
         <li class="nav-item sidebar-category">
@@ -269,22 +262,13 @@
 
   <!-- base:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
   <script src="vendors/chart.js/Chart.min.js"></script>
   <script src="js/jquery.cookie.js" type="text/javascript"></script>
-  <!-- End plugin js for this page-->
-  <!-- inject:js -->
   <script src="js/off-canvas.js"></script>
   <script src="js/hoverable-collapse.js"></script>
   <script src="js/template.js"></script>
-  <!-- endinject -->
-  <!-- plugin js for this page -->
     <script src="js/jquery.cookie.js" type="text/javascript"></script>
-  <!-- End plugin js for this page -->
-  <!-- Custom js for this page-->
   <script src="js/dashboard.js"></script>
-  <!-- End custom js for this page-->
 </body>
 
 </html>
