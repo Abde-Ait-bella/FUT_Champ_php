@@ -16,60 +16,17 @@
   <div class="d-flex container-scroller">
     <div class="m-0 p-0 proBanner row" id="proBanner">
     </div>
-    <!-- partial:./partials/_sidebar.html -->
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
-    
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" href="dashboard.html">
-            <i class="mdi-view-quilt mdi menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item sidebar-category">
-          <p>Menu</p>
-          <span></span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/forms/basic_elements.html">
-            <i class="mdi-view-headline mdi menu-icon"></i>
-            <span class="menu-title">Form elements</span>
-          </a>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="pages/charts/chartjs.html">
-            <i class="mdi mdi-chart-pie menu-icon"></i>
-            <span class="menu-title">Charts</span>
-          </a>
-        </li>
+    <?php
+        include (__DIR__ . '/partials/_leftbar.html');
+    ?>
 
-      </ul>
-    </nav>
-    <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:./partials/_navbar.html -->
-      <nav class="d-flex flex-row px-0 py-0 py-lg-4 col-12 col-lg-12 navbar">
-        <div class="d-flex justify-content-end align-items-center navbar-menu-wrapper">
-          <button class="align-self-center navbar-toggler navbar-toggler" type="button" data-toggle="minimize">
-            <i class="fa-bars fa-solid"></i>
-          </button>
-          <div class="navbar-brand-wrapper">
-            <a class="brand-logo navbar-brand" href="index.html"><img src="images/logo.png" style="width: 7rem;" alt="logo"/></a>
-            <a class="brand-logo-mini navbar-brand" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
-          </div>
-          <h4 class="d-md-block mt-1 mb-0 font-weight-bold d-none">Welcome back, Brandon Haynes</h4>
-          <ul class="navbar-nav-right navbar-nav">
-            <li class="nav-item">
-              <h4 class="d-xl-block mb-0 font-weight-bold d-none">Mar 12, 2019 - Apr 10, 2019</h4>
-            </li>
-          </ul>
-          <button class="navbar-toggler-right align-self-center d-lg-none navbar-toggler" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-          </button>
-        </div>
-      </nav>
-      <!-- partial -->
+      
+    <?php
+        include (__DIR__ . '/partials/_navbar.html');
+    ?>
+      
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">

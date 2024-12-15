@@ -8,47 +8,20 @@
   <title>Spica Admin</title>
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <link href="../../../output.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link href="../output.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="shortcut icon" href="./images/favicon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
   <div class="d-flex container-scroller">
+ 
+    <?php
+      include './partials/_leftbar.html';
+    ?>
+
     <!-- Navbar Top -->
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
-
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" href="../../dashboard.html">
-            <i style="font-size: 1.7rem ;" class="mdi-view-quilt mdi menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
-            <div class="badge badge-info badge-pill">2</div>
-          </a>
-        </li>
-        <li class="nav-item sidebar-category">
-          <p>Menu</p>
-          <span></span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../../pages/forms/basic_elements.html">
-            <i class="mdi-view-headline mdi menu-icon"></i>
-            <span class="menu-title">Form elements</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="../../pages/charts/chartjs.html">
-            <i class="mdi mdi-chart-pie menu-icon"></i>
-            <span class="menu-title">Charts</span>
-          </a>
-        </li>
-
-      </ul>
-    </nav>
-
-    <!-- Navbar left -->
     <div class="container-fluid page-body-wrapper">
       <nav class="d-flex flex-row px-0 py-0 py-lg-4 col-12 col-lg-12 navbar" style="height: inherit">
         <div class="d-flex justify-content-end align-items-center navbar-menu-wrapper">
@@ -56,7 +29,7 @@
             <i class="fa-bars fa-solid"></i>
           </button>
           <div class="navbar-brand-wrapper">
-            <a class="brand-logo navbar-brand" href="index.html"><img src="../../images/logo.png" style="width: 7rem;" alt="logo" /></a>
+            <a class="brand-logo navbar-brand" href="index.html"><img src="./images/logo.png" style="width: 7rem;" alt="logo" /></a>
             <a class="brand-logo-mini navbar-brand" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
           </div>
           <h4 class="d-md-block mt-1 mb-0 font-weight-bold d-none">Welcome back, Brandon Haynes</h4>
@@ -70,7 +43,6 @@
           </button>
         </div>
       </nav>
-
       <!-- Formulaire -->
       <div id="form" class="justify-center gap-3 grid py-5 p-3 transition-all duration-300 ease-in-out">
         <form class="z-10 gap-3 grid w-80 max-w-sm transition-all duration-300 ease-in-out"
@@ -193,79 +165,38 @@
         </form>
       </div>
     </div>
-    <!-- main-panel ends -->
+
   </div>
-  <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
-  <!-- base:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- inject:js -->
   <script src="../../js/off-canvas.js"></script>
   <script src="../../js/hoverable-collapse.js"></script>
   <script src="../../js/template.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
   <script src="../../js/file-upload.js"></script>
-  <!-- End custom js for this page-->
 </body>
 <?php
-include '../../../config/config.php';
 
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+include(__DIR__ . '/../includes/database.php');
 
-if (!$conn) {
-  die("Échec de la connexion : " . mysqli_connect_error());
-}
-echo "Connexion réussie !";
-
-// Vérifier si le formulaire est soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Récupérer les données du formulaire
-  $name = $_POST['name'];
-  $position = $_POST['position'];
-
-  // Préparer la requête SQL pour insérer les données
-  $stmt = $conn->prepare("INSERT INTO players (player_name, N_id, player_position, team_id) VALUES ($name, 1, $position, 1)");
-
-  // Utiliser une requête préparée pour éviter les injections
-  // $stmt = $conn->prepare($sql);
-  // $stmt->bind_param("sisi", $name, $position, );
-
-  if ($stmt->execute()) {
-    echo "Données insérées avec succès.";
-  } else {
-    echo "Erreur : " . $stmt->error;
-  }
-
-  $stmt->close();
-}
-
-// Vérifier si le formulaire est soumis
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupérer les données du formulaire
     $name = $_POST['name'];
     $position = $_POST['position'];
 
-    // Préparer la requête SQL pour insérer les données
     $stmt = $conn->prepare("INSERT INTO players (player_name, N_id, player_position, team_id) VALUES (?, 1, ?, 1)");
 
-    // Associer les paramètres à la requête préparée
     $stmt->bind_param("ss", $name, $position);
 
-    // Exécuter la requête
     if ($stmt->execute()) {
         echo "Données insérées avec succès.";
     } else {
         echo "Erreur : " . $stmt->error;
     }
 
-    // Fermer la requête préparée
     $stmt->close();
 }
 
 $conn->close();
+
 ?>
 
 </html>
