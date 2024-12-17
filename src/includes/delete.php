@@ -11,8 +11,6 @@
     } else {
         echo "Erreur : " . $stmt->error;
     }
-
     $stmt->close();
     $conn->close();
-
 ?>
