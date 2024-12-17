@@ -1,11 +1,11 @@
 <?php
 
-include(__DIR__ . '/../includes/database.php');
+include(__DIR__ . './database.php');
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 // Image -----------
-      $uploadDir = 'uploads/';
+      $uploadDir = '../admine/uploads/';
 
       if (isset($_FILES['photo'])) {
           $file = $_FILES['photo'];
@@ -16,9 +16,8 @@ include(__DIR__ . '/../includes/database.php');
           if ($file['error'] === UPLOAD_ERR_OK) {
 
               $fileType = mime_content_type($file['tmp_name']);
-              echo $fileType . "<br>";
               if (in_array($fileType, ['photo/jpeg', 'photo/png', 'photo/gif', 'image/jpeg', 'image/png', 'image/gif'])) {
-                  echo "yess";
+                  echo $fileType . "<br>";
                   if (move_uploaded_file($file['tmp_name'], $targetPath)) {
                       $photo = $targetPath;
                   } else {
@@ -35,14 +34,25 @@ include(__DIR__ . '/../includes/database.php');
       }
 
       $name = $_POST['name'];
-      $position = $_POST['position'];
+      $player_position = $_POST['position'];
+      $team_id = $_POST['logo'];
+      $N_id = $_POST['flag'];
+      $player_rating = $_POST['rating'];
+      $player_pace = $_POST['pace'];
+      $player_shooting = $_POST['shooting'];
+      $player_passing = $_POST['passing'];
+      $player_dribbling = $_POST['dribbling'];
+      $player_defending = $_POST['defending'];
+      $player_physical = $_POST['physical'];
 
-      $stmt = $conn->prepare("INSERT INTO players (player_name, N_id, photo, player_position, team_id) VALUES (?, 1, ?, ?, 1)");
+      echo $name . " ", $photo . " ", $player_position . "  team : ", $team_id . " nationality : ", $N_id . " ", $player_rating . " ", $player_pace . " ", $player_shooting . " ", $player_passing . " ", $player_dribbling . " ", $player_defending . " ", $player_physical . " ";
+      $stmt = $conn->prepare("INSERT INTO players (player_name, photo,  player_position, N_id , player_rating, player_pace, player_shooting, player_passing, player_dribbling, player_defending, player_physical, team_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-      $stmt->bind_param("sss", $name, $photo, $position);
+      $stmt->bind_param("sssiiiiiiiii", $name, $photo, $player_position, $N_id, $player_rating, $player_pace, $player_shooting, $player_passing, $player_dribbling, $player_defending, $player_physical , $team_id);
 
       if ($stmt->execute()) {
           echo "Données insérées avec succès.";
+          header("location:../admine/addPlayer.php");
       } else {
           echo "Erreur : " . $stmt->error;
       }
@@ -51,5 +61,6 @@ include(__DIR__ . '/../includes/database.php');
   }
 
   $conn->close();
+
 
 ?>

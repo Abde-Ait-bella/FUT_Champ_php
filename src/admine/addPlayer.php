@@ -4,7 +4,6 @@
         if (!$conn) {
           die("Échec de la connexion : " . mysqli_connect_error());
         }
-        echo "Connexion réussie !<br>";
 
         $sql_Nationality = "SELECT * FROM nationality";
         $sql_Club = "SELECT * FROM teams";
@@ -67,6 +66,7 @@
           onsubmit="handleSubmit(event)"
           method="POST"
           enctype="multipart/form-data"
+          action="../includes/addData.php"
           >
           <div class="md:flex md:items-center">
             <div class="md:w-1/3">
