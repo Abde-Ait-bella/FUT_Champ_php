@@ -45,7 +45,6 @@ include(__DIR__ . './database.php');
       $player_defending = $_POST['defending'];
       $player_physical = $_POST['physical'];
 
-      echo $name . " ", $photo . " ", $player_position . "  team : ", $team_id . " nationality : ", $N_id . " ", $player_rating . " ", $player_pace . " ", $player_shooting . " ", $player_passing . " ", $player_dribbling . " ", $player_defending . " ", $player_physical . " ";
       $stmt = $conn->prepare("INSERT INTO players (player_name, photo,  player_position, N_id , player_rating, player_pace, player_shooting, player_passing, player_dribbling, player_defending, player_physical, team_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
       $stmt->bind_param("sssiiiiiiiii", $name, $photo, $player_position, $N_id, $player_rating, $player_pace, $player_shooting, $player_passing, $player_dribbling, $player_defending, $player_physical , $team_id);
