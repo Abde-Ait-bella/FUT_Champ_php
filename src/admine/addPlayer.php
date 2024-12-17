@@ -37,6 +37,8 @@
     <?php
       include './partials/_leftbar.html';
     ?>
+
+    <!-- Navbar Top -->
     <div class="container-fluid page-body-wrapper">
       <nav class="d-flex flex-row px-0 py-0 py-lg-4 col-12 col-lg-12 navbar" style="height: inherit">
         <div class="d-flex justify-content-end align-items-center navbar-menu-wrapper">
