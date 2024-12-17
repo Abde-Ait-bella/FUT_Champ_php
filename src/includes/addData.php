@@ -50,7 +50,6 @@ include(__DIR__ . './database.php');
       $stmt->bind_param("sssiiiiiiiii", $name, $photo, $player_position, $N_id, $player_rating, $player_pace, $player_shooting, $player_passing, $player_dribbling, $player_defending, $player_physical , $team_id);
 
       if ($stmt->execute()) {
-          echo "Données insérées avec succès.";
           header("location:../admine/addPlayer.php");
       } else {
           echo "Erreur : " . $stmt->error;
@@ -60,6 +59,4 @@ include(__DIR__ . './database.php');
   }
 
   $conn->close();
-
-
 ?>
