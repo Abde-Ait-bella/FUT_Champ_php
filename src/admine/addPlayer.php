@@ -1,3 +1,72 @@
+<?php
+
+include(__DIR__ . '/../includes/database.php');
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+          // Image -----------
+
+      $uploadDir = 'uploads/';
+
+      if (isset($_FILES['photo'])) {
+          $file = $_FILES['photo'];
+          $fileName = basename($file['name']);
+          $targetPath = $uploadDir . $fileName;
+
+          // Verifier les erreurs
+          if ($file['error'] === UPLOAD_ERR_OK) {
+
+              $fileType = mime_content_type($file['tmp_name']);
+              echo $fileType . "<br>";
+              if (in_array($fileType, ['photo/jpeg', 'photo/png', 'photo/gif', 'image/jpeg', 'image/png', 'image/gif'])) {
+                  echo "yess";
+                  if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+                      $photo = $targetPath;
+                  } else {
+                      echo "Erreur lors du déplacement du fichier.";
+                  }
+              } else {
+                  echo "Seules les photos (JPEG, PNG, GIF) sont autorisées.";
+              }
+          } else {
+              echo "Erreur lors de l'upload : " . $file['error'];
+          }
+      } else {
+          echo "Aucun fichier envoyé.";
+      }
+
+      $name = $_POST['name'];
+      $position = $_POST['position'];
+      echo $name;
+      echo $position;
+
+      $stmt = $conn->prepare("INSERT INTO players (player_name, N_id, photo, player_position, team_id) VALUES (?, 1, ?, ?, 1)");
+
+      $stmt->bind_param("sss", $name, $photo, $position);
+
+      if ($stmt->execute()) {
+          echo "Données insérées avec succès.";
+      } else {
+          echo "Erreur : " . $stmt->error;
+      }
+
+      $stmt->close();
+  }
+        if (!$conn) {
+          die("Échec de la connexion : " . mysqli_connect_error());
+        }
+        echo "Connexion réussie !<br>";
+
+
+        $sql = "SELECT player_id, player_name, player_position FROM players";
+
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+
+  $conn->close();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +116,9 @@
       <div id="form" class="justify-center gap-3 grid py-5 p-3 transition-all duration-300 ease-in-out">
         <form class="z-10 gap-3 grid w-80 max-w-sm transition-all duration-300 ease-in-out"
           onsubmit="handleSubmit(event)"
-          method="post">
+          method="POST"
+          enctype="multipart/form-data"
+          >
           <div class="md:flex md:items-center">
             <div class="md:w-1/3">
             </div>
@@ -77,6 +148,13 @@
               class="border-gray-200 focus:border-gray-700 bg-gray-200 px-4 py-2 rounded w-full text-slate-950 leading-tight appearance-none focus:outline-none"
               name="flag" id="select-nation">
               <option class="text-gray-400" selected disabled value="">Nationalité</option>
+                  <?php while ($row = $result->fetch_assoc()): ?>
+                          <?php if ($row > 0) { ?>
+                            <option value="<?php echo $row['player_id']; ?>"><?php echo $row['player_name']; ?></option>;
+                            <?php } else { ?>
+                              <option value="">Aucun joueur sélectionné</option>
+                            <?php }  ?>
+                  <?php endwhile; ?>
             </select>
             <input type="file" name="photo" id="input_img"
               class="file:border-0 bg-gray-100 file:bg-slate-600 file:hover:bg-gray-700 file:mr-4 file:px-4 file:py-2 rounded w-full font-medium text-gray-500 text-sm file:text-white cursor-pointer file:cursor-pointer" />
@@ -174,29 +252,7 @@
   <script src="../../js/template.js"></script>
   <script src="../../js/file-upload.js"></script>
 </body>
-<?php
 
-include(__DIR__ . '/../includes/database.php');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'];
-    $position = $_POST['position'];
-
-    $stmt = $conn->prepare("INSERT INTO players (player_name, N_id, player_position, team_id) VALUES (?, 1, ?, 1)");
-
-    $stmt->bind_param("ss", $name, $position);
-
-    if ($stmt->execute()) {
-        echo "Données insérées avec succès.";
-    } else {
-        echo "Erreur : " . $stmt->error;
-    }
-
-    $stmt->close();
-}
-
-$conn->close();
-
-?>
 
 </html>
