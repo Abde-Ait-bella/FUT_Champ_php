@@ -1,6 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  // content: ["./src/**/*.{html,js}",
+  //   "./src/admine/*.php"
+  // ],
+  content: [
+    "./src/**/*.{html,js,php}",
+    "./src/admine/dashboard.php}", 
+  ],
   theme: {
     extend: {
       backgroundImage: {

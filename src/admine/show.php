@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Spica Admin</title>
   <!-- base:css -->
-  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="./vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="./vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- inject:css -->
   <link rel="stylesheet" href="./css/style.css">
@@ -102,12 +102,12 @@
       </div>
     </div>
   </div>
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/hoverable-collapse.js"></script>
-  <script src="../../js/template.js"></script>
-  <script src="../../vendors/chart.js/Chart.min.js"></script>
-  <script src="../../js/chart.js"></script>
+  <script src="./vendors/js/vendor.bundle.base.js"></script>
+  <script src="./js/off-canvas.js"></script>
+  <script src="./js/hoverable-collapse.js"></script>
+  <script src="./js/template.js"></script>
+  <script src="./vendors/chart.js/Chart.min.js"></script>
+  <script src="./js/chart.js"></script>
 </body>
 
 </html>

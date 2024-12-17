@@ -1,18 +1,5 @@
 <?php
-        include '../includes/database.php';
-
-        if (!$conn) {
-          die("Échec de la connexion : " . mysqli_connect_error());
-        }
-
-        $sql_Nationality = "SELECT * FROM nationality";
-        $sql_Club = "SELECT * FROM teams";
-
-        $result_Nationality = $conn->query($sql_Nationality);
-        $result_Club = $conn->query($sql_Club);
-
-        $row_Nationality = $result_Nationality->fetch_assoc();
-        $row_Club = $result_Club->fetch_assoc();
+        include '../includes/getData.php';
 ?>
  
 <!DOCTYPE html>
@@ -23,8 +10,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Spica Admin</title>
-  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="./vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="./vendors/css/vendor.bundle.base.css">
   <link href="../output.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="shortcut icon" href="./images/favicon.png" />
@@ -203,11 +190,11 @@
 
   </div>
   </div>
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/hoverable-collapse.js"></script>
-  <script src="../../js/template.js"></script>
-  <script src="../../js/file-upload.js"></script>
+  <script src="./vendors/js/vendor.bundle.base.js"></script>
+  <script src="./js/off-canvas.js"></script>
+  <script src="./js/hoverable-collapse.js"></script>
+  <script src="./js/template.js"></script>
+  <script src="./js/file-upload.js"></script>
 </body>
 
 
