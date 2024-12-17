@@ -17,7 +17,6 @@ include(__DIR__ . './database.php');
 
               $fileType = mime_content_type($file['tmp_name']);
               if (in_array($fileType, ['photo/jpeg', 'photo/png', 'photo/gif', 'image/jpeg', 'image/png', 'image/gif'])) {
-                  echo $fileType . "<br>";
                   if (move_uploaded_file($file['tmp_name'], $targetPath)) {
                       $photo = $targetPath;
                   } else {

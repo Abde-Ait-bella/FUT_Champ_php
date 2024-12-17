@@ -1,3 +1,7 @@
+<?php
+     include '../includes/getData.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +15,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="images/favicon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <div class="d-flex container-scroller">
@@ -38,24 +43,56 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>
-                            Joueur
-                          </th>
+                          <th> Joueur</th>
                           <th>
                             First name
+                          </th>
+                          <th>
+                            position
                           </th>
                           <th>
                             Rating
                           </th>
                           <th>
-                            Amount
-                          </th>
-                          <th>
-                            Deadline
+                            Action
                           </th>
                         </tr>
                       </thead>
                       <tbody>
+                        <tr>
+                            <?php while ($row_Players = $result_Players->fetch_assoc()): ?>
+                              <?php if ($row_Players > 0) { ?>
+                              <td class="py-1">
+                                <img src="<?php echo $row_Players['photo']; ?>" alt="image"/>
+                              </td>
+                              <td>
+                                <?php echo $row_Players['player_name']; ?>
+                              </td>
+                              <td>
+                                <?php echo $row_Players['player_position']; ?>
+                              </td>
+                              <td>
+                                <?php echo $row_Players['player_rating']; ?>
+                              </td>
+                              <td>
+                                <a href="<?php echo '../includes/delete.php?id='.$row_Players['player_id']; ?>">
+                                  <button
+                                      type="button"
+                                      class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+                                      Modifier
+                                  </button>
+                                </a>
+                              </td>
+                            <?php }  ?>
+                        </tr>
+                            <!-- <?php if ($row_Nationality > 0) { ?>
+                            <option value="<?php echo $row_Nationality['N_id']; ?>"><?php echo $row_Nationality['N_Name']; ?></option>;
+
+                            <?php } else { ?>
+                              <option value="">Aucun joueur sélectionné</option>
+                            <?php }  ?> -->
+                        <?php endwhile; ?>
+<!-- 
                         <tr>
                           <td class="py-1">
                             <img src="images/faces/face1.jpg" alt="image"/>
@@ -74,121 +111,7 @@
                           <td>
                             May 15, 2015
                           </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face2.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            Messsy Adam
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="bg-danger progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $245.30
-                          </td>
-                          <td>
-                            July 1, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face3.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            John Richards
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="bg-warning progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $138.00
-                          </td>
-                          <td>
-                            Apr 12, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face4.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            Peter Meggik
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="bg-primary progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face5.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            Edward
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="bg-danger progress-bar" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 160.25
-                          </td>
-                          <td>
-                            May 03, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face6.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            John Doe
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="bg-info progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 123.21
-                          </td>
-                          <td>
-                            April 05, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            <img src="images/faces/face7.jpg" alt="image"/>
-                          </td>
-                          <td>
-                            Henry Tom
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="bg-warning progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 150.00
-                          </td>
-                          <td>
-                            June 16, 2015
-                          </td>
-                        </tr>
+                        </tr> -->
                       </tbody>
                     </table>
                   </div>
@@ -209,13 +132,9 @@
             </div>
           </div>
         </footer>
-        <!-- partial -->
       </div>
-      <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
 
   <!-- base:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>

@@ -1,24 +1,19 @@
 <?php
+        include '../includes/database.php';
 
-include './database.php';
+        if (!$conn) {
+          die("Échec de la connexion : " . mysqli_connect_error());
+        }
 
-if (!$conn) {
-    die("Échec de la connexion : " . mysqli_connect_error());
-}
-echo "Connexion réussie !<br>";
+        $sql_Nationality = "SELECT * FROM nationality";
+        $sql_Club = "SELECT * FROM teams";
+        $sql_Players = "SELECT * FROM players";
 
-$sql = "SELECT player_id, player_name, player_position FROM players";
+        $result_Nationality = $conn->query($sql_Nationality);
+        $result_Club = $conn->query($sql_Club);
+        $result_Players = $conn->query($sql_Players);
 
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "ID : " . $row['player_id'] . " - Nom : " . $row['player_name'] . " - Position : " . $row['player_position'] . "<br>";
-    }
-} else {
-    echo "Aucun joueur trouvé.";
-}
-
-$conn->close();
-
+        $row_Nationality = $result_Nationality->fetch_assoc();
+        $row_Club = $result_Club->fetch_assoc();
+        $row_Players = $result_Players->fetch_assoc();
 ?>
