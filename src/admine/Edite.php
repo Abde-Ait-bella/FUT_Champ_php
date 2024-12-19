@@ -1,6 +1,6 @@
 <?php
       include(__DIR__.'/partials/_header.html');
-?>
+?>  
 
   <div class="d-flex container-scroller">
  
@@ -30,24 +30,18 @@
           </button>
         </div>
       </nav>
+
       <!-- Formulaire -->
-      <div id="form" class="justify-center gap-3 grid py-5 p-3 transition-all duration-300 ease-in-out">
-        <form class="z-10 gap-3 grid w-80 max-w-sm transition-all duration-300 ease-in-out"
-          onsubmit="handleSubmit(event)"
-          method="POST"
-          enctype="multipart/form-data"
-          action="../DAO/addData.php"
-          >
 
           <?php include(__DIR__.'/../admine/partials/_form.php') ?>
 
           <div class="md:flex md:items-center">
             <div class="md:w-2/3">
-              <button id="add_button"
-                class="bg-slate-600 hover:bg-slate-400 shadow focus:shadow-outline px-4 py-2 rounded font-bold text-slate-900 text-white focus:outline-none"
-                type="submit">
-                Modifier
-              </button>
+                <button id="add_button"
+                  class="bg-slate-600 hover:bg-slate-400 shadow focus:shadow-outline px-4 py-2 rounded font-bold text-slate-900 text-white focus:outline-none"
+                  type="submit">
+                  Modifier
+                </button>
             </div>
           </div>
         </form>

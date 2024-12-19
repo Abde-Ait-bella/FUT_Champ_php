@@ -18,12 +18,11 @@
                 global $id;
                 
                 if ($var['player_id'] == $id) {
-                    return($var);
+                    return array_values($var);
                 }
             }
-                
-                $player = array_filter($data,"test_odd");
-                return $player;
+
+                return array_filter($data,"test_odd");
 
         }
 

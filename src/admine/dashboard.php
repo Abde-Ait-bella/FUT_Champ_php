@@ -48,7 +48,7 @@
                       </thead>
                       <tbody>
                         <tr>
-                            <?php while ($row_Players = $result_Players->fetch_assoc()): ?>
+                            <?php while ($row_Players = mysqli_fetch_assoc($result_Players)): ?>
                               <?php if ($row_Players > 0) { ?>
                               <td class="py-1">
                                 <img src="<?php echo $row_Players['photo']; ?>" alt="image"/>

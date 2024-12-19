@@ -33,14 +33,8 @@
         </div>
       </nav>
       <h1 class="text-4xl font-thin text-gray-900 dark:text-white">Ajouter une joueur</h1>
+      
       <!-- Formulaire -->
-      <div id="form" class="justify-center gap-3 grid py-5 p-3 transition-all duration-300 ease-in-out">
-        <form class="z-10 gap-3 grid w-80 max-w-sm transition-all duration-300 ease-in-out"
-          onsubmit="handleSubmit(event)"
-          method="POST"
-          enctype="multipart/form-data"
-          action="../DAO/addData.php"
-          >
 
           <?php include './partials/_form.php' ?>
 
