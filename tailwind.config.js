@@ -4,8 +4,7 @@ module.exports = {
   //   "./src/admine/*.php"
   // ],
   content: [
-    "./src/**/*.{html,js,php}",
-    "./src/admine/dashboard.php}", 
+    "./src/**/*.{html,js,php}" 
   ],
   theme: {
     extend: {

@@ -1,15 +1,13 @@
 <?php
-        include '../DAO/getData.php';
-?>
- 
- <?php
       include(__DIR__.'/partials/_header.html');
-?>
+?>  
 
-  <div class="d-flex container-scroller"> 
+  <div class="d-flex container-scroller">
+ 
     <?php
-      include(__DIR__.'./partials/_leftbar.html');
+      include(__DIR__.'/../admine/partials/_leftbar.html');
     ?>
+
     <!-- Navbar Top -->
     <div class="container-fluid page-body-wrapper">
       <nav class="d-flex flex-row px-0 py-0 py-lg-4 col-12 col-lg-12 navbar" style="height: inherit">
@@ -32,19 +30,18 @@
           </button>
         </div>
       </nav>
-      <h1 class="text-4xl font-thin text-gray-900 dark:text-white">Ajouter une joueur</h1>
-      
+
       <!-- Formulaire -->
 
-          <?php include './partials/_form.php' ?>
+          <?php include(__DIR__.'/../admine/partials/_form.php') ?>
 
           <div class="md:flex md:items-center">
             <div class="md:w-2/3">
-              <button id="add_button"
-                class="bg-slate-600 hover:bg-slate-400 shadow focus:shadow-outline px-4 py-2 rounded font-bold text-slate-900 text-white focus:outline-none"
-                type="submit">
-                Ajouter
-              </button>
+                <button id="add_button"
+                  class="bg-slate-600 hover:bg-slate-400 shadow focus:shadow-outline px-4 py-2 rounded font-bold text-slate-900 text-white focus:outline-none"
+                  type="submit">
+                  Modifier
+                </button>
             </div>
           </div>
         </form>
@@ -53,11 +50,8 @@
 
   </div>
   </div>
-
+ 
+  
   <?php
       include(__DIR__.'/partials/_footer.html');
   ?>
-
-
-
-</html>

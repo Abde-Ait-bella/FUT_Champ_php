@@ -5,7 +5,7 @@ include(__DIR__ . './database.php');
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 // Image -----------
-      $uploadDir = '../admine/uploads/';
+      $uploadDir = '../uploads/';
 
       if (isset($_FILES['photo'])) {
           $file = $_FILES['photo'];

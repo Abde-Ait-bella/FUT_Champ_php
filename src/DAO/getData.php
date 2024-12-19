@@ -1,9 +1,5 @@
 <?php
-        include '../includes/database.php';
-
-        if (!$conn) {
-          die("Échec de la connexion : " . mysqli_connect_error());
-        }
+        include(__DIR__.'/../DAO/database.php');
 
         $sql_Nationality = "SELECT * FROM nationality";
         $sql_Club = "SELECT * FROM teams";
