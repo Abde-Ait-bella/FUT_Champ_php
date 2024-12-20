@@ -47,6 +47,5 @@ include(__DIR__ . './database.php');
 
       $stmt->close();
   }
-
   $conn->close();
 ?>
