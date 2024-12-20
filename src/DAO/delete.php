@@ -1,10 +1,12 @@
 <?php
     include './database.php';
-    if ($conn) {
-        echo 'test';
-    }
+
     $id = $_GET['id'];
-    $stmt = $conn->prepare("DELETE FROM players WHERE player_id=$id");
+    $table = $_GET['table'];
+    $culumn_id = $_GET['column'];
+
+    echo $culumn_id;
+    $stmt = $conn->prepare("DELETE FROM $table WHERE  $culumn_id = $id");
 
     if ($stmt->execute()) {
         header("location:../admine/dashboard.php");

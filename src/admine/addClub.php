@@ -15,13 +15,11 @@ include(__DIR__ .'/partials/_header.html');
     <?php
     include(__DIR__ . '/partials/_navbar.html');
     ?>
-    <h1 class="text-4xl mt-20 text-gray-900 dark:text-white text-center font-bold	">Ajouter un joueur</h1>
+    <h1 class="text-4xl mt-20 text-gray-900 dark:text-white text-center font-bold	">Ajouter un club</h1>
 
     <!-- Formulaire -->
 
-    <?php include './partials/_formPlayer.php' ?>
-
-
+    <?php include './partials/_formClub.php' ?>
 
   </div>
 </div>

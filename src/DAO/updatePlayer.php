@@ -82,7 +82,7 @@
         );
 
         if ($stmt->execute()) {
-            header("location:../admine/Edite.php");
+            header("location:../admine/editePlayer.php");
         } else {
             echo "Erreur : " . $stmt->error;
         }

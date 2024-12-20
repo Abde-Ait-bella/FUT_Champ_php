@@ -19,16 +19,16 @@
 </head>
 
 <body>
-  <div class="d-flex container-scroller">
+  <div class="d-flex">
   <?php
           include (__DIR__ . '/partials/_leftbar.html');
       ?>
         
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid page-body-wrapper" style="margin-right:inherit">
       <?php
           include (__DIR__ . '/partials/_navbar.html');
       ?>
-      <div class="container-fluid page-body-wrapper">
+      <div class="container-fluid page-body-wrapper" style="margin-right:inherit">
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
