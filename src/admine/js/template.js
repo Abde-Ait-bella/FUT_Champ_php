@@ -72,13 +72,13 @@
     // fixed navbar on scroll
     $(window).scroll(function() {
       if(window.matchMedia('(min-width: 991px)').matches) {
-        if ($(window).scrollTop() >= 197) {
+        // if ($(window).scrollTop() >= 197) {
           $(navbar).addClass('navbar-mini fixed-top');
           $(body).addClass('navbar-fixed-top');
-        } else {
-          $(navbar).removeClass('navbar-mini fixed-top');
-          $(body).removeClass('navbar-fixed-top');
-        }
+        // } else {
+        //   $(navbar).removeClass('navbar-mini fixed-top');
+        //   $(body).removeClass('navbar-fixed-top');
+        // }
       }
       if(window.matchMedia('(max-width: 991px)').matches) {
         $(navbar).addClass('navbar-mini fixed-top');

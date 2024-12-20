@@ -21861,6 +21861,11 @@ dl li {
   background: transparent;
 }
 
+.page-body-wrapper{
+    margin-right: inherit !important;
+    background-color: red !important;
+}
+
 /* style for off-canvas menu*/
 @media screen and (max-width: 991px) {
   .sidebar-offcanvas {
@@ -21888,7 +21893,7 @@ dl li {
   -ms-transition: background 0.25s ease;
   background: url(../images/other/navbar-cover.jpg) center center no-repeat;
   background-size: cover;
-  height: 262px;
+  height: 100px;
   width: auto;
 }
 
