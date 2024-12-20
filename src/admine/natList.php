@@ -7,8 +7,6 @@
 ?>
 
   <div class="d-flex container-scroller">
-    <div class="m-0 p-0 proBanner row" id="proBanner">
-    </div>
 
     <?php
         include (__DIR__ . '/partials/_leftbar.html');
@@ -22,25 +20,11 @@
       
       <div class="main-panel" style="background-color:white">
         <div class="p-8 flex justify-end">
-          <a href="<?php echo '../admine/addPlayer.php' ?>">
+          <a href="<?php echo '../admine/addNationality.php' ?>">
             <button
                 type="button"
                 class="inline-block text-sm	 rounded-md bg-cyan-600	ms-4 px-6 pb-2 pt-2.5 font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
-                ajouter un joueur
-            </button>
-          </a>
-          <a href="<?php echo '../admine/addClub.php'; ?>">
-            <button
-                type="button"
-                class="inline-block text-sm rounded-md bg-cyan-600	ms-4 px-6 pb-2 pt-2.5 font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
-                ajouter un club
-            </button>
-          </a>
-          <a href="<?php echo '../admine/editePlayer.php'; ?>">
-            <button
-                type="button"
-                class="inline-block text-sm rounded-md bg-cyan-600	ms-4 px-6 pb-2 pt-2.5 font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
-                ajouter une Nationalité
+                ajouter une nationalité
             </button>
           </a>
         </div>
@@ -49,44 +33,29 @@
             <div class="grid-margin stretch-card col-lg-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Liste des joueurs</h4>
+                  <h4 class="card-title">Liste des Nationalité</h4>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th> Joueur </th>
-                          <th>
-                            First name
-                          </th>
-                          <th>
-                            position
-                          </th>
-                          <th>  
-                            Rating
-                          </th>
+                        <th colspan="2"> Nationalité </th>
                           <th>
                             Action
                           </th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php while ($row_Players = mysqli_fetch_assoc($result_Players)): ?>
-                          <tr>
-                              <?php if ($row_Players > 0) { ?>
+                          <?php while ($row_Nat = mysqli_fetch_assoc($result_Nationality)): ?>
+                            <tr>
+                              <?php if ($row_Nat > 0) { ?>
                               <td class="py-1">
-                                <img src="<?php echo $row_Players['photo']; ?>" alt="image"/>
+                                <img src="<?php echo $row_Nat['N_Image']; ?>" alt="image"/>
                               </td>
                               <td>
-                                <?php echo $row_Players['player_name']; ?>
+                                <?php echo $row_Nat['N_Name']; ?>
                               </td>
                               <td>
-                                <?php echo $row_Players['player_position']; ?>
-                              </td>
-                              <td>
-                                <?php echo $row_Players['player_rating']; ?>
-                              </td>
-                              <td>
-                                <a href="<?php echo '../DAO/delete.php?id='.$row_Players['player_id'].'&table=players'.'&column=player_id'; ?>">
+                                <a href="<?php echo '../DAO/delete.php?id='.$row_Nat['N_id'].'&table=nationality'.'&column=N_id'; ?>">
                                   <button
                                       type="button"
                                       class="inline-block rounded-md bg-red-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
@@ -94,17 +63,18 @@
                                   </button>
                                 </a>
 
-                                <a href="<?php echo '../admine/editePlayer.php?id='.$row_Players['player_id'].'&table=players'; ?>">
+                                <a href="<?php echo '../admine/editeNationality.php?id='.$row_Nat['N_id'].'&table=nationality'; ?>">
                                   <button
                                       type="button"
                                       class="inline-block rounded-md bg-cyan-600	ms-4 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
                                       <i class="fa-solid fa-wrench"></i>
                                   </button>
                                 </a>
-                              </td>
-                            <?php }  ?>
-                        </tr>
-                        <?php endwhile; ?>
+                            </td>
+                                <?php }  ?>
+
+                            </tr>
+                            <?php endwhile; ?>
                       </tbody>
                     </table>
                   </div>
@@ -113,7 +83,7 @@
             </div>
           </div>
         </div>
-        <!-- Footer -->
+        
         <footer class="footer">
           <div class="card">
             <div class="card-body">

@@ -12,13 +12,13 @@
         include (__DIR__ . '/partials/_leftbar.html');
     ?>
 
-    <div class="container-fluid page-body-wrapper" style="margin-right:inherit">
+    <div class="container-fluid page-body-wrapper" style="margin-right:inherit ; padding-top: 65px; background-color: white !important ">
       
     <?php
         include (__DIR__ . '/partials/_navbar.html');
     ?>
       
-      <div class="main-panel">
+      <div class="main-panel" style="background-color:white">
         <div class="p-8 flex justify-end">
           <a href="<?php echo '../admine/addClub.php' ?>">
             <button
