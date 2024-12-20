@@ -1,9 +1,9 @@
 <?php
-include '../DAO/getData.php';
+  include '../DAO/getData.php';
 ?>
 
 <?php
-include(__DIR__ .'/partials/_header.html');
+  include(__DIR__ .'/partials/_header.html');
 ?>
 
 <div class="d-flex container-scroller">
@@ -11,7 +11,7 @@ include(__DIR__ .'/partials/_header.html');
   include(__DIR__ . './partials/_leftbar.html');
   ?>
   <!-- Navbar Top -->
-  <div class="container-fluid mt-10 page-body-wrapper" style="margin-right:inherit">
+  <div class="container-fluid mt-10 page-body-wrapper" style="margin-right:inherit ; padding-top: 65px; background-color: white !important ">
     <?php
     include(__DIR__ . '/partials/_navbar.html');
     ?>

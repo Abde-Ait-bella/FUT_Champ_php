@@ -48,4 +48,28 @@
                 return array_filter($dataClub,"filterClub");
         }
 
+        
+        function getNationality($id){
+            global $id;
+            
+            global $result_Nationality;
+            
+            $dataNat = [];
+            
+            while($row_Nat = $result_Nationality->fetch_assoc()) {
+                $dataNat[] = $row_Nat;
+            }
+            
+            function filterNat($var)
+            {
+                global $id;
+                
+                if ($var['N_id'] == $id) {
+                    return array_values($var);
+                }
+            }
+
+                return array_filter($dataNat,"filterNat");
+        }
+
 ?>

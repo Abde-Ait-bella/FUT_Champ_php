@@ -24,12 +24,12 @@
           include (__DIR__ . '/partials/_leftbar.html');
       ?>
         
-    <div class="container-fluid page-body-wrapper" style="margin-right:inherit">
+    <div class="container-fluid page-body-wrapper" style="margin-right:inherit ; padding-top: 65px; background-color: white !important ">
       <?php
           include (__DIR__ . '/partials/_navbar.html');
       ?>
-      <div class="container-fluid page-body-wrapper" style="margin-right:inherit">
-      <div class="main-panel">
+      <div class="container-fluid page-body-wrapper" style="margin-right:inherit ; padding-top: 65px; background-color: white !important ">
+      <div class="main-panel" style="background-color:white">
         <div class="content-wrapper">
           <div class="row">
             <div class="grid-margin stretch-card col-lg-6">

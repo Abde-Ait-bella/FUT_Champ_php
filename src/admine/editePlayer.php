@@ -9,7 +9,7 @@ include(__DIR__ . '/partials/_header.html');
   ?>
 
   <!-- Navbar Top -->
-  <div class="container-fluid page-body-wrapper" style="margin-right:inherit">
+  <div class="container-fluid page-body-wrapper" style="margin-right:inherit ; padding-top: 65px; background-color: white !important ">
     <nav class="d-flex flex-row px-0 py-0 py-lg-4 col-12 col-lg-12 navbar" style="height: inherit">
       <div class="d-flex justify-content-end align-items-center navbar-menu-wrapper">
         <button class="align-self-center navbar-toggler navbar-toggler" type="button" data-toggle="minimize">
