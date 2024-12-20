@@ -36,7 +36,7 @@ include(__DIR__ . '/partials/_header.html');
     <!-- Formulaire -->
     <h1 class="text-4xl pt-10 text-gray-900 dark:text-white text-center font-bold	">Modifier</h1>
 
-    <?php include(__DIR__ .'/partials/_formClub.php') ?>
+    <?php include(__DIR__ .'/partials/_formNationality.php') ?>
 
   </div>
 </div>
