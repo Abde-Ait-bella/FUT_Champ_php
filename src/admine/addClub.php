@@ -1,9 +1,9 @@
 <?php
-include '../DAO/getData.php';
+  include '../DAO/getData.php';
 ?>
 
 <?php
-include(__DIR__ .'/partials/_header.html');
+  include(__DIR__ .'/partials/_header.html');
 ?>
 
 <div class="d-flex container-scroller">
