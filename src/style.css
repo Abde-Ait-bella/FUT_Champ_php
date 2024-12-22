@@ -121,3 +121,29 @@
 .st__icon i{
     color: white;
   }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    box-shadow: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a94c2;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+  }
+  ::-webkit-scrollbar-track-piece {
+    border: none;
+  }
+
+#players_container{
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+

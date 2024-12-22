@@ -26,7 +26,9 @@ if (isset($_GET['id'])) {
                     <option <?php echo (isset($player['player_position']) && $player['player_position'] == "CB") ? 'selected' : ''; ?> class="text-gray-950" value="CB">CB</option>
                     <option <?php echo (isset($player['player_position']) && $player['player_position'] == "LB") ? 'selected' : ''; ?> class="text-gray-950" value="LB">LB</option>
                     <option <?php echo (isset($player['player_position']) && $player['player_position'] == "RB") ? 'selected' : ''; ?> class="text-gray-950" value="RB">RB</option>
+                    <option <?php echo (isset($player['player_position']) && $player['player_position'] == "RM") ? 'selected' : ''; ?> class="text-gray-950" value="RM">RM</option>
                     <option <?php echo (isset($player['player_position']) && $player['player_position'] == "CM") ? 'selected' : ''; ?> class="text-gray-950" value="CM">CM</option>
+                    <option <?php echo (isset($player['player_position']) && $player['player_position'] == "LM") ? 'selected' : ''; ?> class="text-gray-950" value="LM">LM</option>
                     <option <?php echo (isset($player['player_position']) && $player['player_position'] == "RW") ? 'selected' : ''; ?> class="text-gray-950" value="RW">RW</option>
                     <option <?php echo (isset($player['player_position']) && $player['player_position'] == "LW") ? 'selected' : ''; ?> class="text-gray-950" value="LW">LW</option>
                     <option <?php echo (isset($player['player_position']) && $player['player_position'] == "ST") ? 'selected' : ''; ?> class="text-gray-950" value="ST">ST</option>

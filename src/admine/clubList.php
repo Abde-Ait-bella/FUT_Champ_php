@@ -12,10 +12,10 @@
         include (__DIR__ . '/partials/_leftbar.html');
     ?>
 
-    <div class="container-fluid page-body-wrapper" style="margin-right:inherit ; padding-top: 65px; background-color: white !important ">
+    <div class="container-fluid page-body-wrapper" style="margin-right:inherit; background-color: white !important ">
       
     <?php
-        include (__DIR__ . '/partials/_navbar.html');
+        include (__DIR__ . '/partials/_navbar.php');
     ?>
       
       <div class="main-panel" style="background-color:white">

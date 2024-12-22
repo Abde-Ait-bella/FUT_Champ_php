@@ -21346,8 +21346,8 @@ dl li {
 }
 
 .table td img {
-  width: 36px;
-  height: 36px;
+  width: 50px;
+  height: 50px;
   border-radius: 100%;
 }
 
@@ -21891,9 +21891,9 @@ dl li {
   -webkit-transition: background 0.25s ease;
   -moz-transition: background 0.25s ease;
   -ms-transition: background 0.25s ease;
-  background: url(../images/other/navbar-cover.jpg) center center no-repeat;
+  /* background: url(../images/other/navbar-cover.jpg) center center no-repeat; */
   background-size: cover;
-  height: 100px;
+  height: 10px;
   width: auto;
 }
 
@@ -22263,7 +22263,7 @@ dl li {
     display: flex;
     -webkit-align-items: center;
     align-items: center;
-    background: #223e9c;
+    background: #05123e;
     padding: 0.5rem 1.4rem;
     left: 70px;
     position: absolute;
@@ -22279,13 +22279,13 @@ dl li {
     display: none;
   }
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link:hover .menu-title {
-    background: #223e9c;
+    background: #05123e;
   }
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse,
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
     display: block;
     padding: .5rem 0;
-    background: #223e9c;
+    background: #05123e;
     border-radius: 0 0 5px 0;
     position: absolute;
     left: 70px;
