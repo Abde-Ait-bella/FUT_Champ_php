@@ -45,7 +45,7 @@ include(__DIR__ . "/DAO/getData.php");
                             <div class="card">
                                 <div class="relative justify-center grid w-full">
                                     <div class="card_position">
-                                        <div class="card_rating"><?= $player["player_rating"] ?></div>
+                                        <div class="card_rating"><?= $player["player_rating"]  ? floor($player["player_rating"]) : 0 ?></div>
                                         <div><?= $player["player_position"] ?></div>
                                     </div>
                                     <div class="card_detaille">
@@ -87,7 +87,7 @@ include(__DIR__ . "/DAO/getData.php");
                                             <img src="<?= $player["team_image"] ?>" alt="">
                                         </div>
                                     </div>
-                                    <img class="card_image" src="<?= $player["photo"] ?>" alt="">
+                                    <img class="card_image" src="<?= str_replace("../uploads/", "./uploads/", $player["photo"])  ?>" alt="">
                                 </div>
                             </div>
                         <?php } ?>
@@ -96,7 +96,7 @@ include(__DIR__ . "/DAO/getData.php");
                 </div>
             </div>
             <div id="terrain"
-                class="relative flex justify-center items-start bg-[url('./assets/svg/terrain.svg')] bg-gray-600 bg-transparent bg-contain bg-no-repeat bg-right mt-36 w-8/12 transition-all duration-700 ease-in-out me-5">
+                class="relative flex justify-center items-start bg-[url('./assets/svg/terrain.svg')] bg-transparent bg-contain bg-no-repeat bg-right mt-36 w-8/12 transition-all duration-700 ease-in-out me-5">
                 <div class="grid justify-items-center items-center h-[90%]">
                     <div class="flex justify-center w-[27rem]">
                         <div id="card" class="mt-[-1rem]" id="card"position="RW">
@@ -317,7 +317,9 @@ include(__DIR__ . "/DAO/getData.php");
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./script.js"></script>
+    <script src="./script.js">
+        window.addEventListener('load', fetch_data);
+    </script>
 </body>
 
 </html>
